@@ -1,0 +1,541 @@
+output
+	print()
+
+String literal
+	"some text"
+	'some text'
+single and double quotes work the same way
+	"\n"
+new line character
+	3 single quotes ''' can be used to create multi line text '''
+
+Escape character
+	\
+
+Hello world
+	print("Hello World!")
+
+String contatination
+	use the + character
+	print("Hello " + "World!")
+
+Get n character from string
+	"Hello World"[5]
+	0 bound
+
+User input
+	input(prompt)
+	e.g. input("What is your name")
+
+Comments
+	# comment
+
+Length of strings
+	len()
+
+Variables
+	variable_name = value
+	e.g. name = input("What is your name?")
+
+Boolean
+	True
+	False
+
+Determining data types
+	type(variable)
+	outputs type i.e int, str, float
+
+Casting an variable
+	str(variable)
+	float(variable)
+
+Arithmetic
+	+, -, *, /, ** (exponent), % (modulus)
+
+Rounding
+	round(number, amount of decimal places)
+	e.g. 2 = round(1.6, 0)
+
+f-Strings
+	automatically converts non strings into strings without manual casting
+	e.g. print(f"The value of variable1 is {variable1}")
+
+If, else conditions
+	indentation is important
+	if condtion:
+		do something
+	else:
+		do something else
+	e.g.
+	if height > 120:
+		print("You can ride the rollercoaster!")
+	else:
+		print("Sorry, you have to grow taller")
+
+elif (else if)
+	if condition:
+		do something
+	elif condtion:
+		do something else
+	elif condition:
+		do something totally different
+	else:
+		do something
+
+Comparison operators
+	>, <, >=, <=, ==, !=
+
+Locgical Operators
+	and, or, not
+
+lower method
+	.lower() takes a string a returns a lower case version
+
+title method
+	.title() takes a string a returns a title case version
+
+count method
+	.count(x) takes an array and returns the number of times x appears in it
+
+importing libraries (modules)
+	import moduleName
+
+importing variables from a library
+	from moduleName import variable1, variable2 ...
+
+importing everything from a library (considered bad practice)
+	from moduleName import *
+
+importing using an alias
+	import moduleName as alias
+	e.g.
+	import random as r
+	r.randint(1, 10)
+
+random number generation (see https://www.askpython.com/python-modules/python-random-module-generate-random-numbers-sequences)
+	import random
+	random.randint(1, 10)
+
+random item from list
+	import random
+	random.choice(listVar)
+
+Lists (see https://docs.python.org/3/tutorial/datastructures.html)
+
+Lists, defining
+	variable = [item1, item2]
+	e.g. fruits = ["Cherry", "Apple", "Pear"]
+
+Lists, accessing an element using an index
+	listVariable[index]
+	e.g. print(fruits[0])
+	negative values work backwards through the list
+	e.g. print(fruits[-1]) #Pear
+
+Lists, assigning a value to an element
+	listVariable[index] = value
+	e.g. fruits[1] = "Pineapple"
+
+Lists, adding values
+	listVariable.append(value)
+	e.g. fruits.append("Strawberry")
+
+Lists, IndexError
+	IndexErrors are thrown when an index outside the size of a list is used
+
+Lists, nested lists
+	listVariable = [list1, list2]
+
+Lists, checking if a value exists in a list
+	if value in list:
+	can be used in a while loop e.g.
+	while value in list:
+
+Lists, finding the index a value exists in
+	foundIndex = listVariable.index(searchValue)
+
+Lists, creating a list of n default elements
+	listVariable = [default]*n
+	e.g
+	listVariable = ["_"]*5
+
+For each loops
+	for item in list:
+	e.g.
+	fruits = ["Apple", "Peach", "Pear"]
+	for fruit in fruits:
+		print(fruit)
+
+range(x, y, optional[z])
+	the range function returns a list of numbers starting at the x and ending 1 before y
+	list_var = range(1,10) #returns a list of 1 to 9
+	the optinal z param can be used to define the step between each item
+	list_var = range(1,10,2) #returns a list of odd numbers from 1 to 9
+
+range(x)
+	range(x) acts like range(0, x)
+
+range in for loops
+	range is generally used in for loops
+	for number in range(1,11):
+		print(number)
+	would print all numbers between 1 and 10
+
+using _ in loops
+	if you aren't using the control variable in a loop, you can replace it with an _
+	e.g.
+	display = []
+	for _ in range(6):
+		display.append("")
+
+while loops
+	loops while a condition is met
+	e.g.
+	i = 1
+	while i < 6:
+  		print(i)
+  		i += 1
+
+Built in functions
+	https://docs.python.org/3/library/functions.html
+
+Functions, defining
+	def my_function():
+		print("Hello")
+	functions must be defined before they can be called
+
+Functions, defining with parameters
+	def my_function(name):
+		print(f"Hello {name}")
+	functions can't be overloaded
+	parameters are passed by value
+
+Functions, calling
+	my_function()
+
+Functions, calling with arguments (positional)
+	my_function("Kevin")
+
+or
+Functions, calling with arguments (keyword)
+	my_function(name = "Kevin")
+
+Functions, returning values
+	you can return a value from a function with the return keyword
+	e.g.
+	def my_function(name):
+		return "Hello " + name
+
+Functions, docstrings
+	The first line of a function can be used for documentation, using tripple "
+	e.g.
+	def my_function(name):
+		"""Takes in a name and returns it along with Hello"""
+
+Functions, storing
+	Functions can be stored in variables and called with their atributes
+	e.g.
+	def my_function(name):
+		return "Hello " + name
+	function_store = my_function
+	print(function_store(name))
+
+Clearing the console in replit
+	from replit import clear
+	clear()
+
+Dictionaries, defining (hash map)
+	varname = {key: value}
+	e.g.
+	my_dictionary = {"Bug": "An error in code"}
+	multiple key/value pairs can be defined at once by seperating them with a comman
+	varname = {key1: value1, key2: value2...}
+	Python devs tend to put a "," after the last entry
+	an empty dictionary can be created using = {}
+
+Dictionaries, fetching values by key
+	dictionaryVar[key]
+	e.g.
+	my_value = my_dictionary["Bug"]
+	if the key doesn't exist a KeyError will be thrown
+
+Dictionaries, adding a key/value set
+	dictionaryVar[key] = value
+	e.g.
+	my_dictionary["Function"] = "repaetable code"
+	if the key already exists then it's value will be overwritten
+
+Dictionaries, looping over
+	for key in my_dictionary:
+		print(key)
+		print(my_dictionary[key])
+	for loops return the key with each iteration not the value or key/value
+	or
+	for (key, value) in my_dictionary.items():
+		print(key)
+		print(value)
+
+Accessing global variables in local scope
+	global variables aren't normally accessible in local scope i.e. inside a function. They can be made accessible using the global keyword
+	e.g.
+	my_var = 1
+	def my_function():
+		global my_var
+		my_var = 2
+
+Constants
+	constants are defined with uppercase names
+
+Python package index
+	https://pypi.org/
+	This is a repo of packages created by the python community
+
+Creating object from constructors
+	var = Constructor()
+	e.g.
+	table = PrettyTable()
+	Constructors are always capaltised
+
+Accessing methods
+	var.method
+	e.g.
+	timmy = Turtle()
+	timmy.forward(100)
+
+Accessing fields
+	Fields on an object can be accessed directly, there's no getters or setters
+	e.g.
+	table.align = "l"
+
+Null check
+	In python a null object is identified as None
+	e.g.
+	if foo is None:
+	or
+	if not foo is None:
+
+pass keyword
+	When you create a new code block using : python expects an indent and code in this block, it will error if neither exist
+	e.g.
+	def my_function():
+
+	print("Hello")
+	You 
+can use the pass keyword to tell the python inteperator to ignore this error for now:
+	def my_function():
+		pass
+	print("Hello")
+
+Classes, defining
+	The class keyword is used to define a class
+	e.g.
+	class Customer:
+
+Classes, adding attributes
+	attributes can be added directly to objects created from a class, without having to add them to the class
+	e.g.
+	class User:
+    		pass
+
+	user_1 = User()
+	user_1.id = "001"
+	user_1.username = "Kev"
+
+ 	print(user_1.username)
+
+Classes, constructors
+	constructors are created using the special function __init__(self), extra parameters can be added but you can only have one constructor per class
+	e.g.
+	class User:
+	
+		def __init__(self, user_id):
+			self.user_id = user_id
+
+	user_1 = User("001")
+
+Classes, methods
+	methods are defined within the class using the def keyword and have self as their first parameter
+	e.g.
+	class User:
+
+		def follow(self):
+			self.followers += 1
+
+Classes, inheritance
+	classes can inherite from another class, this is defined during the class definition
+	e.g.
+	class Fish(Animal)
+		def __init__(self):
+			super().__init__()
+	The parent class can be refered to using the super method
+
+Classes, overwriting parent methods
+	subclasses inherite the methods from the parent, they can also overwrite that method with their own
+
+Tuples
+	tuples are immutable lists i.e. constant, they are created and accessed in the same way as lists but are defined using () rather than []
+	e.g.
+	my_tupple = (12, 52, 250)
+
+Slicing lists and tuples
+	slicing can give you specific ranges in a list or tuple
+	e.g.
+	my_list = [1,2,3,4,5,6]
+	my_list[1:3] #returns [2,3]
+	if leave either number before or after the : blank then the returned list extends to either the begining or end of the list/tupple
+	e.g.
+	my_list = [1,2,3,4,5,6]
+	my_list[2:] #returns [3,4,5,6]
+	a third argument can be enter to skip a certain number of entries
+	my_list[2::2] #returns every other entry from the 3rd onwards
+
+Higher order function
+	defined functions can be stored in a variable and called using that variable, the function must be referenced without the ()
+	e.g.
+	def print_upper(str):
+    		print(str.upper())
+
+	my_func = print_upper
+
+	my_func("hello world")
+	Functions can also be passed as arguments to other functions, these are known as higher order functions
+	e.g.
+	def print_upper(str):
+    		print(str.upper())
+
+	def change_text(text, func):
+    		func(text)
+
+	change_text("hello world", print_upper)
+
+Sleeping
+	the time module has methods that can cause code execution to wait
+	import time
+	time.sleep(1) #causes the code to wait 1 second
+
+List Comprehension
+	this is the term given when we create a new list from an existing collection (list, string, dictionary, range)
+	the syntax is new_list = [new_list_item from item in existing_collection if test], if test is optional
+	e.g.
+		numbers = [1,2,3]
+		new_numbers = [n+1 for n in numbers]
+	or using the if condition
+		names = ["Alex", "Beth", "Caroline", "Dave", "Elanor", "Freddie"]
+		short_names = [name for name in names if len(name) < 5]
+	the range function can also be used
+		doubled = [n*2 for n in range(1,5)]
+
+Dictionary Comprehension
+	works in a similar fashon to list comprehension but can take either a list or dictionary as an iterable
+	new_dict = {new_key:new_list_item from item in existing_collection if test}
+	or
+	new_dict = {new_key:new_list_item for (key, value) in existing_dictionary.items() if test}
+	e.g
+	passed_students = {student:score for (student, score) in students_scores.items() if score > 60}
+	the items() method turns a dictionary into a list of tupples, i.e. [(key1, value1), (key2, value2)...]
+
+Replacing text in a string
+	my_new_string = my_old_string.replace(string_to_find, replace_text)
+
+Stripping blank space from start and end of strings, like space or new line characters
+	my_string = my_string.strip()
+
+Files, opening a file
+	my_file = open("my_file.txt")
+
+Files, reading from a file
+	contents = my_file.read()
+
+Files, closing a file
+	my_file.close()
+
+Files, using the with keyword
+	opening a file using with will cause Python to automatically close the file once the code block is completed
+	e.g.
+	with open("my_file.txt") as my_file:
+		contents = my_file.read()
+		print(contents)
+	#now outside the code block the file will be closed
+
+with keyword
+	in the file handling context with is used to automatically deal with error handling, rather than having to manually code a try finally block.
+	with can be used with any class that contains __enter__(self) and __exit__(self) methods, these are called on entering and exiting a with block
+
+Files, writing to a file
+	By default files are opened in read only mode, to write to a file an extra argument must be passed to open
+	e.g.
+	my_file = open("my_file.txt", mode="w")
+	my_file.write("Hello world")
+	using w (write) mode will overwrite anything in the file, to amend a file the mode has to be "a" (append)
+	e.g.
+	my_file = open("my_file.txt", mode="a")
+	my_file.write("Hello world")
+	Hello world is now added to the end of the file
+	note: you can't write integers to a file but you can use f strings to convert an int to a str
+
+Files, creating a new file
+	If you open a file in write mode that doesn't aleady exist, the file is created
+
+Files, reading multiple lines
+	the file method readlines() returns a list of lines from the file
+
+Reading csv files using the csv module
+	import csv #inbuilt module
+	with open("my_file.csv") as file:
+		data = csv.reader(file)
+
+Reading csv files using pandas (https://pandas.pydata.org/docs/)
+	import pandas #external module
+	data = pandas.read_csv("my_file.csv")
+
+Pandas, convert data into a dictionary using the to_dict method
+	data_dict = data.to_dict()
+
+Pandas, DataFrames and series
+	pandas has classes to contain 3 dimensional data i.e. tables, this is a DataFrame; and 2d data i.e. a column, a Series
+
+Pandas, column data
+	the data in a column can be access using the heading of that column from the csv file
+	e.g.
+		data["day"]
+	or
+		data.day
+	case is important here
+
+Pandas, turing a column of data into a list
+	e.g.
+		days = data["day"].to_list
+
+Pandas, getting the average of data in a column
+	ave = data["temp"].mean()
+
+Pandas, getting the max
+	max = data["temp"].max()
+
+Pandas, getting a specific row
+	rows are fetched from the data using conditional logic
+	e.g.
+		row = data[data.day == "Monday"]
+	or
+		row = data[data.temp == data.temp.max()]
+	this may return multiple rows, you can use [] to treat the rows as a list
+
+Pandas, creating a dataframe from scratch
+	data_dict = {
+	    "students": ["Amy", "James", "Angela"],
+	    "scores": [76, 56, 65]
+	}
+
+	data = pandas.DataFrame(data_dict)
+
+Pandas, creating a new csv file from existing data
+	data.to_csv("new_data.csv")
+
+Pandas, getting distinct values from a column
+	data["Primary Fur Color"].unique()
+
+Pandas, getting the value from a field witout all the extra data crap
+	row.state.item()
+
+Pandas, creating a new dictionary from a dataFrame
+	high_scores = {row.student:row.score for (index, row) in student_data_frame.iterrows() if row.score > 70}

@@ -1,0 +1,126 @@
+Turtle graphics
+	The turtle module provides the ability to draw in a window, docs here https://docs.python.org/3/library/turtle.html
+
+Turtle, creating a new turtle
+	from turtle import Turtle
+	my_turtle = Turtle()
+
+Turtle, setting the turtle's shape
+	my_turtle.shape("turtle") #valid options are “arrow”, “turtle”, “circle”, “square”, “triangle”, “classic”
+	or this can be done using the constructor
+	my_turtle = Turtle(shape="turtle")
+
+Turtle, stopping the screen from disappearing after run
+	create a new screen object from the turtle module and call exitonclick
+	e.g.
+	from turtle import Screen
+	screen = Screen()
+	#last line of code
+
+Turtle, chaning the colour
+	the color method controls the color of what the turtle will draw. Args can either be RGB hex or named colors from https://cs111.wellesley.edu/reference/colors. If using rgb the colormode of the screen must be set to 255 first
+	e.g.
+	my_turtle.color("red")
+	screen.exitonclick()
+
+Turtle, moving and drawing
+	the turtle can be moved forward or backward drawing a line as it goes
+	e.g.
+	my_turtle.forward(100)
+
+Turtle, turning
+	the turtle can be rotated left or right by x degrees
+	e.g.
+	my_tutrle.left(90)
+
+Turtle, set heading
+	turns the turtle to north, south, east or west depending on the value passed
+	e.g.
+	my_turtle.setheading(90)
+	the heading value can also be returned using turtle.heading()
+
+Turtle, drawing a circle
+	turtle.circle(radius)
+	my_turtle.circle(20)
+
+Turtle, drawing a dot
+	turtle.dot(10, "red")
+
+Turtle, jumping to a x,y co-ordinate
+	the teleport function put the turtlet at a set of co-ordiantes without drawing anything
+	e.g.
+	turtle.teleport(10, 50)
+
+Turtle, going to a x,y co-ordinate
+	the goto function will move the turtle to a set of co-ordiantes
+	e.g.
+	turtle.goto(100, 200)
+
+Turtle, changing the turtle speed
+	turtle.speed("fastest")
+
+Turtle, stop drawing
+	turtle.penup() #Now turtle won't draw as it moves
+
+Turtle, draw once move
+	turtle.pendown()
+
+Turtle, clear drawings
+	turtle.clear()
+
+Turtle, reset to starting point
+	turtle.home() #will draw to that point if pen is down
+
+Turtle, listening for keyevents and responding to them
+	the screen can be instructed to listen to events using the .listen method
+	e.g.
+	screen.listen()
+	Methods like onkey can be used to respond to keyboard events by passing in a key and a function that'll fire when the key is pressed
+	e.g.
+	def move_forward():
+    		turtle.forward(10)
+
+	screen.listen()
+	screen.onkey(key="w", fun=move_forward)
+
+Turtle, setting the screen size
+	screen.setup(100, 200) #width and height
+
+Turtle, displaying a pop up to capture user input
+	user_input = screen.textinput(title="Make your bet", prompt="Who will win?")
+	a screen.numinput is also avaiable for numeric values
+
+Turtle, changing the screen background color
+	screen.bgcolor("black")
+
+Turtle, setting the window title
+	screen.title("My window")
+
+Turtle, turning off animation
+	screen.tracer(0)
+	screen can now be manually refreshed using:
+	screen.update()
+
+Turtle, changing the size
+	self.shapesize(2, 2) #doubles the size
+	self.shapesize(0.5, 0.5) #halves the size
+
+Turtle, calculate distance to another x,y coordinates or another turtle object
+	turtle.distance(anotherTurtle) < 10
+
+Turtle, writing text
+	turtle.write(f"Score: {self.score}", move=False, align="center", font=('Courier', 24, 'normal'))
+
+Turtle, clearing what a turtle has drawn
+	turtle.clear()
+
+Turtle, using custom images
+	turtle can load in custom images to be used as turtle shapes, only .gif files are acceptable
+	e.g.
+		screen = Screen()
+		screen.register_shape("my_image.gif")
+		turtle = Turtle()
+		turtle.shape("my_image.gif")
+
+Turtle, another way to stop the screen closing
+	screen.mainloop() #when you don't want a click to close the screen
