@@ -240,6 +240,13 @@ Functions, storing
 	function_store = my_function
 	print(function_store(name))
 
+Functions, default arguments
+    Functions can have default arguments
+    def my_function(a, b=1)
+        print(a)
+        print(b)
+    my_function(2) or my_function(2, 2)
+
 Clearing the console in replit
 	from replit import clear
 	clear()
@@ -539,3 +546,20 @@ Pandas, getting the value from a field witout all the extra data crap
 
 Pandas, creating a new dictionary from a dataFrame
 	high_scores = {row.student:row.score for (index, row) in student_data_frame.iterrows() if row.score > 70}
+
+Tkinter, creating a window and keeping it open
+    import tkinter
+    window = tkinter.Tk()
+    window.mainloop()
+
+Tkinter, adding a title to a window
+    window.title("My first GUI")
+
+Tkinter, setting a windows min size
+    windows will automatically resize to display everything in them, but there's a method to force a min size
+    window.minsize(width=500, height=300)
+
+Tkinter, creating a label and adding it to the window
+    my_label = tkinter.Label(text="My Label", font=("Arial", 24, "bold"))
+    my_label.pack() #More info about the packer https://tcl.tk/man/tcl8.6/TkCmd/pack.htm
+
