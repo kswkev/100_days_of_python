@@ -247,6 +247,28 @@ Functions, default arguments
         print(b)
     my_function(2) or my_function(2, 2)
 
+Functions, using *args to have a variable list of arguments
+    *args is a special argument that lets you pass in an unlimited size tupple to a function, you can loop over or refer to
+    individual elements using []. It's the * that's the special part, you can use text other than args
+        def add(*args):
+            sum = 0
+            for n in args:
+                sum += n
+            return sum
+
+        print(add(1,5,10))
+        print(add(3,2))
+
+Functions, using **kwargs to have a variable list of keyword arguments
+    **kwargs is a special argument that lets you pass in an unlimited size dictionary to a function using key word arguments
+    It's the ** that's the special part, you can use text other than kwargs
+        def calculate(n, **kwargs):
+            n += kwargs["add"]
+            n *= kwargs["multiply"]
+            return n
+
+        print(calculate(5, add=2, multiply=3))
+
 Clearing the console in replit
 	from replit import clear
 	clear()
@@ -265,6 +287,8 @@ Dictionaries, fetching values by key
 	e.g.
 	my_value = my_dictionary["Bug"]
 	if the key doesn't exist a KeyError will be thrown
+	Optionally the get method can be used i.e. my_dictionary.get("Bug"), if the key doesn't exist then None is returned
+	rather than an error being thrown
 
 Dictionaries, adding a key/value set
 	dictionaryVar[key] = value
