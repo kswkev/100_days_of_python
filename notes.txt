@@ -587,3 +587,28 @@ Tkinter, creating a label and adding it to the window
     my_label = tkinter.Label(text="My Label", font=("Arial", 24, "bold"))
     my_label.pack() #More info about the packer https://tcl.tk/man/tcl8.6/TkCmd/pack.htm
 
+Tkinter, changing properties
+    Properties can be changed by accessing them directly
+        my_label["text"] = "some new text"
+    or thought the config method
+        my_label.config(text="more new text")
+
+Tkinter, creating a button and adding it to the window
+    button = tkinter.Button(text="Click Me")
+    button.pack()
+
+Tkinter, adding a click command to a button
+    the command property on the button class points to a function that'll be fired when the button is clicked,
+    this can be set as part of the constructor or accessed in the usual way
+    def button_clicked():
+        global my_label
+        my_label["text"] = "Button Got Clicked"
+
+    button["command"] = button_clicked
+
+Tkinter, adding a textbox
+    input = tkinter.Entry(width=10)
+    input.pack()
+
+Tkinter, getting the value from a textbox
+    my_label["text"] = input.get()
