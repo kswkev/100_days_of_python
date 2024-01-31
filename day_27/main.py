@@ -7,7 +7,7 @@ window.minsize(width=500, height=300)
 
 # Creating a label
 my_label = tkinter.Label(text="My Label", font=("Arial", 24, "bold"))
-my_label.pack()
+my_label.grid(column=0, row=0)
 
 # Properties can be change by
 # accessing them directly
@@ -17,7 +17,7 @@ my_label.config(text="more new text")
 
 # Creating a button
 button = tkinter.Button(text="Click Me")
-button.pack()
+button.grid(column=1, row=1)
 
 def button_clicked():
     global my_label
@@ -26,7 +26,10 @@ def button_clicked():
 
 button["command"] = button_clicked
 
+button2 = tkinter.Button(text="Click Me 2")
+button2.grid(column=2, row=0)
+
 input = tkinter.Entry(width=10)
-input.pack()
+input.grid(column=3, row=2)
 
 window.mainloop()

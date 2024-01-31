@@ -612,3 +612,16 @@ Tkinter, adding a textbox
 
 Tkinter, getting the value from a textbox
     my_label["text"] = input.get()
+
+Tkinter, adding padding around elements or windows
+    the padx and pady properties determine the space between elements or around the edge of the window
+    window.config(padx=100, pady=200)
+
+Tkinter, positioning elements
+    elements can be position in one of 3 ways, if none are used then the element won't appear
+    pack: the pack method will place the element relative to the side of the screen using the side property
+        button.pack(side="left")
+    place: the place method places the element at the x,y coordinates specified
+        button.place(x=100, y=200)
+    grid: the grid method using columns and rows to specify where an element will appear, this is in relation to existing elements
+        button.grid(column=1, row=1)
