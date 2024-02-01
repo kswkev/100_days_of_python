@@ -1,0 +1,60 @@
+Reading csv files using the csv module
+	import csv #inbuilt module
+	with open("my_file.csv") as file:
+		data = csv.reader(file)
+
+Reading csv files using pandas (https://pandas.pydata.org/docs/)
+	import pandas #external module
+	data = pandas.read_csv("my_file.csv")
+
+Pandas, convert data into a dictionary using the to_dict method
+	data_dict = data.to_dict()
+
+Pandas, DataFrames and series
+	pandas has classes to contain 3 dimensional data i.e. tables, this is a DataFrame; and 2d data i.e. a column, a Series
+
+Pandas, column data
+	the data in a column can be access using the heading of that column from the csv file
+	e.g.
+		data["day"]
+	or
+		data.day
+	case is important here
+
+Pandas, turing a column of data into a list
+	e.g.
+		days = data["day"].to_list
+
+Pandas, getting the average of data in a column
+	ave = data["temp"].mean()
+
+Pandas, getting the max
+	max = data["temp"].max()
+
+Pandas, getting a specific row
+	rows are fetched from the data using conditional logic
+	e.g.
+		row = data[data.day == "Monday"]
+	or
+		row = data[data.temp == data.temp.max()]
+	this may return multiple rows, you can use [] to treat the rows as a list
+
+Pandas, creating a dataframe from scratch
+	data_dict = {
+	    "students": ["Amy", "James", "Angela"],
+	    "scores": [76, 56, 65]
+	}
+
+	data = pandas.DataFrame(data_dict)
+
+Pandas, creating a new csv file from existing data
+	data.to_csv("new_data.csv")
+
+Pandas, getting distinct values from a column
+	data["Primary Fur Color"].unique()
+
+Pandas, getting the value from a field witout all the extra data crap
+	row.state.item()
+
+Pandas, creating a new dictionary from a dataFrame
+	high_scores = {row.student:row.score for (index, row) in student_data_frame.iterrows() if row.score > 70}

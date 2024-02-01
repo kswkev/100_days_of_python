@@ -1,0 +1,54 @@
+Tkinter, creating a window and keeping it open
+    import tkinter
+    window = tkinter.Tk()
+    window.mainloop()
+
+Tkinter, adding a title to a window
+    window.title("My first GUI")
+
+Tkinter, setting a windows min size
+    windows will automatically resize to display everything in them, but there's a method to force a min size
+    window.minsize(width=500, height=300)
+
+Tkinter, creating a label and adding it to the window
+    my_label = tkinter.Label(text="My Label", font=("Arial", 24, "bold"))
+    my_label.pack() #More info about the packer https://tcl.tk/man/tcl8.6/TkCmd/pack.htm
+
+Tkinter, changing properties
+    Properties can be changed by accessing them directly
+        my_label["text"] = "some new text"
+    or thought the config method
+        my_label.config(text="more new text")
+
+Tkinter, creating a button and adding it to the window
+    button = tkinter.Button(text="Click Me")
+    button.pack()
+
+Tkinter, adding a click command to a button
+    the command property on the button class points to a function that'll be fired when the button is clicked,
+    this can be set as part of the constructor or accessed in the usual way
+    def button_clicked():
+        global my_label
+        my_label["text"] = "Button Got Clicked"
+
+    button["command"] = button_clicked
+
+Tkinter, adding a textbox
+    input = tkinter.Entry(width=10)
+    input.pack()
+
+Tkinter, getting the value from a textbox
+    my_label["text"] = input.get()
+
+Tkinter, adding padding around elements or windows
+    the padx and pady properties determine the space between elements or around the edge of the window
+    window.config(padx=100, pady=200)
+
+Tkinter, positioning elements
+    elements can be position in one of 3 ways, if none are used then the element won't appear
+    pack: the pack method will place the element relative to the side of the screen using the side property
+        button.pack(side="left")
+    place: the place method places the element at the x,y coordinates specified
+        button.place(x=100, y=200)
+    grid: the grid method using columns and rows to specify where an element will appear, this is in relation to existing elements
+        button.grid(column=1, row=1)
