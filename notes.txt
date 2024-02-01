@@ -509,3 +509,12 @@ Files, creating a new file
 
 Files, reading multiple lines
 	the file method readlines() returns a list of lines from the file
+
+Padding a string
+    numbers can be padded with 0s to format their output
+    n = 42
+    print(f'{n:05d}')
+    print('%05d' % n)
+    print('{0:05d}'.format(n))
+
+    all will output '00042'

@@ -45,10 +45,56 @@ Tkinter, adding padding around elements or windows
     window.config(padx=100, pady=200)
 
 Tkinter, positioning elements
-    elements can be position in one of 3 ways, if none are used then the element won't appear
+    elements can be position in one of 3 ways, if none are used then the element won't appear. Grid and pack can't be used together
     pack: the pack method will place the element relative to the side of the screen using the side property
         button.pack(side="left")
     place: the place method places the element at the x,y coordinates specified
         button.place(x=100, y=200)
     grid: the grid method using columns and rows to specify where an element will appear, this is in relation to existing elements
         button.grid(column=1, row=1)
+
+Tkinter, importing an image from an image file
+    image files are imported using the PhotoImage class, and can be used along with a canvas object to display the image
+    img = PhotoImage(file="my_image.png")
+
+Tkinter, creating a canvas
+    Canvas objects are used to layer different object in a window
+    canvas = Canvas(width=200, height=224)
+    canvas.pack()
+
+Tkinter, adding an image to a canvas
+    The first 2 args in the create image method specify where the image should appear within the canvas
+    tomato_img = PhotoImage(file="tomato.png")
+    canvas = Canvas(width=200, height=224)
+    canvas.create_image(102, 112, image=tomato_img)
+
+Tkinter, adding text to a canvas
+    The create_text method can be used to add text. The first 2 args are positional x/y, text povides the actual text,
+    fill determins the color of the text
+    canvas.create_text(103, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+
+Useful website of color cordination https://colorhunt.co/
+
+Tkinter, removing the box around a canvas
+    If you change the background colour of both the widow and the canvas to something other than white, you'll notice
+    a white box around the canvas. This can be removed by specifying the property highlightthickness=0 on the canvas
+    e.g. canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
+
+Tkinter, accessing elements on the canvas
+    When one of the canvas create methods is ran it returns the object created, this can be used with the itemconfig
+    canvas method to access that items config
+    e.g.
+        canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
+        timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+        canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
+
+Tkinter, window after method
+    the after method on the window class can be used to run a function after a number of milliseconds have passed
+    e.g.
+        window.after(1000, count_down, count - 1)
+    the 2nd argument is the function to run and any argument from the 3rd on is passed as the parameters
+
+Tkinter, cancelling a window after method
+    the widow after method returns a variable that can be used to cancel the running process
+        timer = window.after(1000, count_down, count - 1)
+        window.after_cancel(timer)
