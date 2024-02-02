@@ -40,6 +40,17 @@ Tkinter, adding a textbox
 Tkinter, getting the value from a textbox
     my_label["text"] = input.get()
 
+Tkinter, setting the focus on a textbox
+    website_input.focus()
+
+Tkinter, setting default text in a textbox
+    the insert method takes 2 params, the first is the index to add the text from (END is a tkinter constant
+    for the last index), the 2nd is the text
+    username_input.insert(END, DEFAULT_USERNAME)
+
+Tkinter, wiping text from a textbox
+    website_input.delete(0, END)
+
 Tkinter, adding padding around elements or windows
     the padx and pady properties determine the space between elements or around the edge of the window
     window.config(padx=100, pady=200)
@@ -51,7 +62,7 @@ Tkinter, positioning elements
     place: the place method places the element at the x,y coordinates specified
         button.place(x=100, y=200)
     grid: the grid method using columns and rows to specify where an element will appear, this is in relation to existing elements
-        button.grid(column=1, row=1)
+        button.grid(column=1, row=1) # an additional argument columnspan can be used to span multiple columns
 
 Tkinter, importing an image from an image file
     image files are imported using the PhotoImage class, and can be used along with a canvas object to display the image
@@ -63,7 +74,8 @@ Tkinter, creating a canvas
     canvas.pack()
 
 Tkinter, adding an image to a canvas
-    The first 2 args in the create image method specify where the image should appear within the canvas
+    The first 2 args in the create image method specify where the image should appear within the canvas, these specify
+    the center of the image
     tomato_img = PhotoImage(file="tomato.png")
     canvas = Canvas(width=200, height=224)
     canvas.create_image(102, 112, image=tomato_img)
@@ -98,3 +110,13 @@ Tkinter, cancelling a window after method
     the widow after method returns a variable that can be used to cancel the running process
         timer = window.after(1000, count_down, count - 1)
         window.after_cancel(timer)
+
+Tkinter, using messageboxes
+    there are a number of different messageboxes included in tkinter, to use them you must first import the messagebox
+    module
+    e.g.
+        from tkinter import messagebox
+    You can then call message boxes like the error message box
+        messagebox.showerror(title="Valatation Error", message="Please complete all boxes")
+    or the ok/cancel message box which returns a boolean
+        is_ok = messagebox.askokcancel(title="Confirmation", message=message_text)

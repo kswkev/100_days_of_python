@@ -518,3 +518,8 @@ Padding a string
     print('{0:05d}'.format(n))
 
     all will output '00042'
+
+Copy and pasting from the clipboard
+    there's an external module that has methods to copy and paste text to/from the clipboard
+    import pyperclip
+    pyperclip.copy("someText")
