@@ -523,3 +523,32 @@ Copy and pasting from the clipboard
     there's an external module that has methods to copy and paste text to/from the clipboard
     import pyperclip
     pyperclip.copy("someText")
+
+Error handling
+    error handling is done using the following keywords
+    try:
+        this is where we attempt to run some code that might throw an error
+    except:
+        run this code if an error is thrown during try
+    else:
+        run this if there was no error thrown
+    finally:
+        run this regardless
+    there can be multiple except blocks to catch different error types
+    e.g.
+    try:
+        # do something that might throw a KeyError
+        # do something that might throw a IndexError
+    except KeyError:
+        # react to the KeyError
+    except IndexError:
+        # react to the IndexError
+    in addition the except statement can capture the error message
+    e.g.
+    except KeyError as error_message:
+        print(f"Key {error_message} not found")
+
+Raising errors
+    custom errors can be created using the raise keyword
+    e.g.
+        raise ValueError("An error message")
