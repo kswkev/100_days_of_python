@@ -1,0 +1,4 @@
+site1|kswkev@hotmail.com|someSh!t
+sitee2|kswkev@hotmail.com|moreShity1
+|kswkev@hotmail.com|
+somesite|kswkev@hotmail.com|myPassword
