@@ -552,3 +552,33 @@ Raising errors
     custom errors can be created using the raise keyword
     e.g.
         raise ValueError("An error message")
+
+JSON, saving data to a JSON file
+    JSON can store the content of dictionaries by first open the file in "w"rite mode and using the json dump method,
+    supplying the dictionary, file and the optional indent which will make the json file more readable
+    import json
+    data_dict = {
+        website: {
+            USERNAME_KEY: username,
+            PASSWORD_KEY: password
+        }
+    }
+    with open(DATA_FILE_NAME, "w") as file:
+        json.dump(data_dict, file, indent=4)
+
+JSON, reading data from a JSON file
+    opening a json file in "r"ead mode allows the json method load with the file passed to return a data dictionary
+    created from the data in the file
+    with open(DATA_FILE_NAME, "r") as file:
+        data_dict = json.load(file)
+
+JSON, updating data in a JSON file
+    there are 3 steps in updating the data in a JSON file;
+    1. load the data from the existing file
+        with open(DATA_FILE_NAME, "r") as file:
+            data = json.load(file)
+    2. use the JSON method update to add dictionary entires to the existing dictionary
+        data.update(data_dict)
+    3. dump the updated data back into the file
+        with open(DATA_FILE_NAME, "w") as file:
+            json.dump(data, file, indent=4)
