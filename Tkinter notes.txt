@@ -33,6 +33,10 @@ Tkinter, adding a click command to a button
 
     button["command"] = button_clicked
 
+Tkinter, adding a image to a button
+    right_img = PhotoImage(file=RIGHT_IMAGE)
+    right_button = Button(image=right_img, highlightthickness=0)
+
 Tkinter, adding a textbox
     input = tkinter.Entry(width=10)
     input.pack()
