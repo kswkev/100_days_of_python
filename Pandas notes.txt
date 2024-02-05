@@ -31,6 +31,9 @@ Pandas, getting the average of data in a column
 Pandas, getting the max
 	max = data["temp"].max()
 
+Pandas, iterating over rows
+    for index, row in data.iterrows():
+
 Pandas, getting a specific row
 	rows are fetched from the data using conditional logic
 	e.g.
