@@ -582,3 +582,32 @@ JSON, updating data in a JSON file
     3. dump the updated data back into the file
         with open(DATA_FILE_NAME, "w") as file:
             json.dump(data, file, indent=4)
+
+Sending email
+    email can be sent using the smtplib library, first create a connection using the smtp information for you email provider
+    (you can google this). Call the starttls method, this will make your email more secure. The format of the email message
+    should be "Subject:" + subject text + "\n\n" + email body
+    e.g.
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+    # make connection secure
+        connection.starttls()
+        connection.login(user=my_email, password=password)
+        connection.sendmail(
+            from_addr=my_email,
+            to_addrs="pythontest916@yahoo.com",
+            msg="Subject:Hello\n\nThis is the email body")
+
+datetime
+    date and time can be represented using the inbuilt datetime library,
+    we can create new datetime objects using the datetime constructor
+    e.g.
+        date_of_birth = dt.datetime(year=1980, month=7, day=19)
+        print(date_of_birth)
+    we can also get the current datetime using the now method
+    e.g.
+        now = dt.datetime.now()
+    there are a number of useful date related methods on the datetime object
+    e.g.
+        year = now.year
+        month = now.month
+        day_of_week = now.weekday()
