@@ -619,6 +619,13 @@ API sending a request and getting a response
     import requests #an external library
     response = requests.get(url="http://api.open-notify.org/iss-now.json")
 
+API sending a request with a request
+    request = {
+        "lat": MY_LAT,
+        "lng": MY_LONG
+    }
+    response = requests.get("https://api.sunrise-sunset.org/json", params=request)
+
 API response codes
     1##: Hold on
     2##: Here you go
