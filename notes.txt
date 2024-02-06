@@ -614,3 +614,26 @@ datetime
 
 Hosting python in the cloud
     https://www.pythonanywhere.com/
+
+API sending a request and getting a response
+    import requests #an external library
+    response = requests.get(url="http://api.open-notify.org/iss-now.json")
+
+API response codes
+    1##: Hold on
+    2##: Here you go
+    3##: Go away
+    4##: You screwed up
+    5##: I screwed up
+
+Dealing with non 200 responses
+    the requests library has a method to check for error responses and will raise an error
+    e.g.
+        response.raise_for_status()
+
+API getting JSON from the response
+    e.g.
+        response = requests.get(URL)
+        response.raise_for_status()
+        json = response.json()
+        quote = json["quote"]
