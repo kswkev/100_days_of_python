@@ -43,7 +43,12 @@ Boolean
 
 Determining data types
 	type(variable)
-	outputs type i.e int, str, float
+	outputs type i.e int, str, float, bool
+
+Defining a variable data type
+    variables don't have to be defined with a type but can be if required
+    age: int
+    age = 12
 
 Casting an variable
 	str(variable)
@@ -209,6 +214,17 @@ Functions, defining with parameters
 		print(f"Hello {name}")
 	functions can't be overloaded
 	parameters are passed by value
+
+Functions, defining parameter type
+    functions don't have to define the type of parameters they except but this can be done
+    def my_function(name: str):
+		print(f"Hello {name}")
+
+Functions, defining return type (known in python as type hints)
+    functions don't have to define the type of output either but this can be done using type hints
+    def add(num1: int, num2: int) -> int:
+        return num1 + num2
+    None can be used if your function doesn't return a value
 
 Functions, calling
 	my_function()

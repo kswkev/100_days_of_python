@@ -86,8 +86,10 @@ Tkinter, adding an image to a canvas
 
 Tkinter, adding text to a canvas
     The create_text method can be used to add text. The first 2 args are positional x/y, text povides the actual text,
-    fill determins the color of the text
-    canvas.create_text(103, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+    fill determins the color of the text, the width value specifies how long each line of text should be causing the text
+    to wrap each line
+    canvas.create_text(103, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"), width=280)
+
 
 Useful website of color cordination https://colorhunt.co/
 
