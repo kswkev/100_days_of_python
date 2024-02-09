@@ -660,3 +660,11 @@ API getting JSON from the response
         response.raise_for_status()
         json = response.json()
         quote = json["quote"]
+
+Environment variables
+    Environment variables can be used to hide information that you don't want to appear in you code as plain text, passwords, tokens etc
+    You can get environment variables using the below
+    e.g.
+        import os
+        api_key = os.environ.get("OWM_API_KEY")
+    You can set environment variables in bash using the export command e.g. export OAM_API_KEY=1234567897asdv
