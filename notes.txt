@@ -668,3 +668,4 @@ Environment variables
         import os
         api_key = os.environ.get("OWM_API_KEY")
     You can set environment variables in bash using the export command e.g. export OAM_API_KEY=1234567897asdv
+    or through the windows system environment variables option
