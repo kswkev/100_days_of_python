@@ -628,8 +628,21 @@ datetime
         month = now.month
         day_of_week = now.weekday()
 
+datetime, formatting
+    datetime values can be formatted into strings using the strftime method
+    e.g.
+        dt.datetime.now().strftime("%Y%m%d") #return 20240211
+    https://www.w3schools.com/python/python_datetime.asp
+
 Hosting python in the cloud
     https://www.pythonanywhere.com/
+
+API HTTP requests
+    there are 4 types of http requests
+    get, get some data from an api
+    post, supply a piece of data
+    put, change an existing piece of data
+    delete, delete an existing piece of data
 
 API sending a request and getting a response
     import requests #an external library
@@ -660,6 +673,65 @@ API getting JSON from the response
         response.raise_for_status()
         json = response.json()
         quote = json["quote"]
+
+API post requests
+    post requests send data to an API for processing
+    e.g.
+        user_params = {
+            "token": API_TOKEN,
+            "username": PIXELA_USERNAME,
+            "agreeTermsOfService": "yes",
+            "notMinor": "yes"
+        }
+
+    response = requests.post(url=PIXELA_ENDPOINT, json=user_params)
+
+API put request
+    put requests update existing data
+    e.g.
+        def update_pixel(token, username, graph_id, date, quantity):
+            #https://docs.pixe.la/entry/put-pixel
+            pixela_pixel_put_endpoint = f"{PIXELA_ENDPOINT}/{username}/graphs/{graph_id}/{date}"
+
+            pixel_config = {
+                "quantity": quantity
+            }
+
+            headers = {
+                    "X-USER-TOKEN": token
+            }
+
+            return requests.put(url=pixela_pixel_put_endpoint, json=pixel_config, headers=headers)
+
+API delete request
+    delete requests delete existing data
+    e.g.
+        def delete_pixel(token, username, graph_id, date):
+            #https://docs.pixe.la/entry/delete-pixel
+            pixela_pixel_delete_endpoint = f"{PIXELA_ENDPOINT}/{username}/graphs/{graph_id}/{date}"
+
+            headers = {
+                "X-USER-TOKEN": token
+            }
+
+            return requests.delete(url=pixela_pixel_delete_endpoint, headers=headers)
+
+API headers
+    headers can be used to hid certain data when sending a request
+    e.g.
+        graph_config = {
+            "id": GRAPH_ID,
+            "name": "Python Coding Graph",
+            "unit": "hours",
+            "type": "int",
+            "color": "ajisai"
+        }
+
+        headers = {
+            "X-USER-TOKEN": API_TOKEN
+        }
+
+        response = requests.post(url=PIXELA_GRAPHS_ENDPOINT, json=graph_config, headers=headers)
 
 Environment variables
     Environment variables can be used to hide information that you don't want to appear in you code as plain text, passwords, tokens etc
