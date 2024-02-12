@@ -733,6 +733,13 @@ API headers
 
         response = requests.post(url=PIXELA_GRAPHS_ENDPOINT, json=graph_config, headers=headers)
 
+API basic authentication
+    some APIs support basic authentication
+    e.g.
+        from requests.auth import HTTPBasicAuth
+        basic = HTTPBasicAuth(SHEETY_AUTH_USERNAME, SHEETY_AUTH_PASSWORD)
+        response = requests.post(SHEETY_ENDPOINT, json=add_row_request, auth=basic)
+
 Environment variables
     Environment variables can be used to hide information that you don't want to appear in you code as plain text, passwords, tokens etc
     You can get environment variables using the below
