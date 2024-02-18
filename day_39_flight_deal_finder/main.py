@@ -26,4 +26,15 @@ if len(missing_iata_codes) > 0:
 
 from_date = datetime.datetime.now() + datetime.timedelta(days = 2)
 to_date = datetime.datetime.now() + datetime.timedelta(days = 180)
-flight_search.find_flights_to(LONDON, "PAR", from_date, to_date, 7, 28)
+flight_data = []
+for data in stored_data:
+    returned = flight_search.find_flights_to(LONDON, data["iataCode"], from_date, to_date, 7, 28)
+    flight_data.append({
+        "search_data": data,
+        "found_flight": returned
+    })
+
+for data in flight_data:
+    if float(data["found_flight"]["price"]) < float(data["search_data"]["lowestPrice"]):
+        print(f"Found flight to {data["search_data"]["city"]} for £{data["found_flight"]["price"]} for "
+              f"{data["found_flight"]["nights"]} nights, departing {data["found_flight"]["local_departure"]}")

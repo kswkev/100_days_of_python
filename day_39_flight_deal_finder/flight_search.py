@@ -1,4 +1,5 @@
 import requests
+from flight_data import FlightData
 
 class FlightSearch:
     #This class is responsible for talking to the Flight Search API.
@@ -7,6 +8,7 @@ class FlightSearch:
 
     def __init__(self):
         self.API_KEY = "y8vy6tOAX6iepgTEOJNQMiTj2iVnZ1_t"
+        self.flight_data = FlightData()
 
     def get_city_code(self, city):
         print(f"Searching for location IATA code for {city}")
@@ -33,7 +35,7 @@ class FlightSearch:
             return ""
 
     def find_flights_to(self, source_city_iata, destination_city_iata, date_from, date_to, min_stay, max_stay):
-        print(f"Search for flights from {source_city_iata} to {destination_city_iata}\n"
+        print(f"Search for flights from {source_city_iata} to {destination_city_iata} "
               f"with departure date between {date_from} and {date_to}")
 
         header = {
@@ -54,4 +56,5 @@ class FlightSearch:
 
         response = requests.get(self.SEARCH_END_POINT, request, headers=header)
         response.raise_for_status()
-        print(response.json())
+        flight_info = self.flight_data.parse_flight_data(response.json())
+        return flight_info
